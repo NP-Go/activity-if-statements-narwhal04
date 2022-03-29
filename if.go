@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 
@@ -42,6 +45,8 @@ func main() {
 	fmt.Printf("Input any desired number: ")
 	fmt.Scan(&inputNumber)
 
+	resultMessage := ""
+
 	if inputNumber%2 == 0 {
 		fmt.Printf("%v is an even number\n", inputNumber)
 	} else {
@@ -49,26 +54,21 @@ func main() {
 	}
 
 	if number1, number2 := 17, 24; inputNumber > number1 && inputNumber > number2 {
-		fmt.Printf("%v is the biggest number in the group\n", inputNumber)
-		number3 := inputNumber - number2
-		fmt.Printf("%v is bigger than the 2nd biggest number by %v", inputNumber, number3)
+		resultMessage = strconv.Itoa(inputNumber) + " is bigger than the 2nd biggest number by " + strconv.Itoa(inputNumber-number2)
 
 	} else if inputNumber < number2 && inputNumber > number1 {
-		fmt.Printf("%v is the 2nd biggest number in the group\n", inputNumber)
-		number3 := number2 - inputNumber
-		fmt.Printf("%v is smaller than the biggest number by %v", inputNumber, number3)
+		resultMessage = strconv.Itoa(inputNumber) + " is smaller than the biggest number by " + strconv.Itoa(number2-inputNumber)
 
 	} else if inputNumber == number2 {
-		fmt.Printf("the number is same as the biggest number in the group, %v", number2)
+		resultMessage = "the number is same as the biggest number in the group: " + strconv.Itoa(number2)
 
 	} else if inputNumber == number1 {
-		fmt.Printf("the number is same as the smallest number in the group, %v", number1)
+		resultMessage = "the number is same as the smallest number in the group: " + strconv.Itoa(number1)
 
 	} else {
-		fmt.Printf("%v is the smallest number in the group\n", inputNumber)
-		number3 := number1 - inputNumber
-		fmt.Printf("%v is smaller than the 2nd smallest number by %v", inputNumber, number3)
+		resultMessage = strconv.Itoa(inputNumber) + " is smaller than the 2nd smallest number by " + strconv.Itoa(number1-inputNumber)
 
 	}
+	println(resultMessage)
 
 }
