@@ -37,7 +37,7 @@ func main() {
 	// 	fmt.Printf("%v is equal to %v", number1, number2)
 	// }
 
-	// working code for case 2
+	// working code for case 2 - test push
 
 	//-------------------------------------------------case 3----------------------------------------------------------
 
